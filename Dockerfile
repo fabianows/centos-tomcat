@@ -26,31 +26,31 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
  mv jdk* ${JAVA_HOME}
 
 # Install Tomcat
-ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.15
+##ENV TOMCAT_MAJOR 8
+##ENV TOMCAT_VERSION 8.5.15
 
-RUN wget http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/src/apache-tomcat-${TOMCAT_VERSION}-src.tar.gz && \
- tar -xvf apache-tomcat-${TOMCAT_VERSION}-src.tar.gz && \
- rm apache-tomcat*.tar.gz
+##RUN wget http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/src/apache-tomcat-${TOMCAT_VERSION}-src.tar.gz && \
+## tar -xvf apache-tomcat-${TOMCAT_VERSION}-src.tar.gz && \
+## rm apache-tomcat*.tar.gz
 
-RUN mv apache-tomcat-${TOMCAT_VERSION}-src /usr/local/tomcat
+##RUN mv apache-tomcat-${TOMCAT_VERSION}-src /usr/local/tomcat
 
-RUN groupadd tomcat && \
- useradd -s /bin/bash -g tomcat tomcat && \
- chown -Rf tomcat.tomcat /usr/local/tomcat
+##RUN groupadd tomcat && \
+## useradd -s /bin/bash -g tomcat tomcat && \
+## chown -Rf tomcat.tomcat /usr/local/tomcat
 
-RUN ls /usr/local/tomcat/conf
+##RUN ls /usr/local/tomcat/conf
 
 #setting tomcat
-ADD settings.xml /usr/local/tomcat/conf/
-ADD tomcat-users.xml /usr/local/tomcat/conf/
-ADD server.xml /usr/local/tomcat/conf/
+##ADD settings.xml /usr/local/tomcat/conf/
+##ADD tomcat-users.xml /usr/local/tomcat/conf/
+##ADD server.xml /usr/local/tomcat/conf/
 
 # Add Projeto 
 ##ADD src/index.html $CATALINA_HOME/webapps/index.html
 
 # expose tomcat port
-EXPOSE 8080
+##EXPOSE 8080
 
 #run tomcat
-CMD ["catalina.sh", "run"]
+##CMD ["catalina.sh", "run"]
